@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E8DAE6D26081FE500CAB8CA /* SportSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE6C26081FE500CAB8CA /* SportSelectView.swift */; };
+		0E8DAE712608208A00CAB8CA /* HomeScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE702608208A00CAB8CA /* HomeScheduleView.swift */; };
+		0E8DAE772608222A00CAB8CA /* DropdownNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE762608222A00CAB8CA /* DropdownNavView.swift */; };
+		0E8DAE7B2608227B00CAB8CA /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE7A2608227B00CAB8CA /* PracticeView.swift */; };
+		0E8DAE7E260822DC00CAB8CA /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE7D260822DC00CAB8CA /* CalendarView.swift */; };
+		0E8DAE822608231F00CAB8CA /* ScheduleFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE812608231F00CAB8CA /* ScheduleFormView.swift */; };
+		0E8DAE852608237300CAB8CA /* ScheduleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE842608237300CAB8CA /* ScheduleModel.swift */; };
+		0E8DAE882608238A00CAB8CA /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE872608238A00CAB8CA /* Event.swift */; };
 		0EDA7CF026023AD300DBC842 /* AthletePortalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA7CEF26023AD300DBC842 /* AthletePortalApp.swift */; };
 		0EDA7CF226023AD300DBC842 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA7CF126023AD300DBC842 /* ContentView.swift */; };
 		0EDA7CF426023AD700DBC842 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA7CF326023AD700DBC842 /* Assets.xcassets */; };
@@ -14,6 +22,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E8DAE6C26081FE500CAB8CA /* SportSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportSelectView.swift; sourceTree = "<group>"; };
+		0E8DAE702608208A00CAB8CA /* HomeScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScheduleView.swift; sourceTree = "<group>"; };
+		0E8DAE762608222A00CAB8CA /* DropdownNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownNavView.swift; sourceTree = "<group>"; };
+		0E8DAE7A2608227B00CAB8CA /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
+		0E8DAE7D260822DC00CAB8CA /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		0E8DAE812608231F00CAB8CA /* ScheduleFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleFormView.swift; sourceTree = "<group>"; };
+		0E8DAE842608237300CAB8CA /* ScheduleModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleModel.swift; sourceTree = "<group>"; };
+		0E8DAE872608238A00CAB8CA /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		0EDA7CEC26023AD300DBC842 /* AthletePortal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AthletePortal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDA7CEF26023AD300DBC842 /* AthletePortalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthletePortalApp.swift; sourceTree = "<group>"; };
 		0EDA7CF126023AD300DBC842 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -33,6 +49,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E8DAE6A26081EE100CAB8CA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0E8DAE6C26081FE500CAB8CA /* SportSelectView.swift */,
+				0E8DAE702608208A00CAB8CA /* HomeScheduleView.swift */,
+				0E8DAE7A2608227B00CAB8CA /* PracticeView.swift */,
+				0E8DAE762608222A00CAB8CA /* DropdownNavView.swift */,
+				0E8DAE7D260822DC00CAB8CA /* CalendarView.swift */,
+				0E8DAE812608231F00CAB8CA /* ScheduleFormView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		0E8DAE6B26081EEC00CAB8CA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				0E8DAE842608237300CAB8CA /* ScheduleModel.swift */,
+				0E8DAE872608238A00CAB8CA /* Event.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		0EDA7CE326023AD200DBC842 = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +92,8 @@
 			children = (
 				0EDA7CEF26023AD300DBC842 /* AthletePortalApp.swift */,
 				0EDA7CF126023AD300DBC842 /* ContentView.swift */,
+				0E8DAE6A26081EE100CAB8CA /* Views */,
+				0E8DAE6B26081EEC00CAB8CA /* Model */,
 				0EDA7CF326023AD700DBC842 /* Assets.xcassets */,
 				0EDA7CF826023AD700DBC842 /* Info.plist */,
 				0EDA7CF526023AD700DBC842 /* Preview Content */,
@@ -139,7 +179,15 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EDA7CF226023AD300DBC842 /* ContentView.swift in Sources */,
+				0E8DAE7E260822DC00CAB8CA /* CalendarView.swift in Sources */,
+				0E8DAE7B2608227B00CAB8CA /* PracticeView.swift in Sources */,
+				0E8DAE852608237300CAB8CA /* ScheduleModel.swift in Sources */,
+				0E8DAE882608238A00CAB8CA /* Event.swift in Sources */,
+				0E8DAE6D26081FE500CAB8CA /* SportSelectView.swift in Sources */,
+				0E8DAE712608208A00CAB8CA /* HomeScheduleView.swift in Sources */,
+				0E8DAE822608231F00CAB8CA /* ScheduleFormView.swift in Sources */,
 				0EDA7CF026023AD300DBC842 /* AthletePortalApp.swift in Sources */,
+				0E8DAE772608222A00CAB8CA /* DropdownNavView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
