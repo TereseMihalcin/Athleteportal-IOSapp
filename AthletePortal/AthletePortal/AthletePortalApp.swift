@@ -9,9 +9,13 @@ import SwiftUI
 
 @main
 struct AthletePortalApp: App {
+    @StateObject private var scheduleModel = ScheduleModel()
+    
+    // Connection to db here?
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(scheduleModel)
         }
     }
 }
