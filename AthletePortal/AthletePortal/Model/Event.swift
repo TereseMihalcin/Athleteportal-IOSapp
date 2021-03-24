@@ -10,6 +10,7 @@ import Foundation
 struct Event: Hashable, Codable, Identifiable {
     var id: Int
     var facility: String
+    var foobar: String
     // This will be one of a few predefined strings/names that will be selected from a dropdown in the form to schedule
     //      The selectable facilities will be:
     //      Mckenna, Sullivan, Field House, Sullivan Lounge, Softball field, Baseball field, Practice Football field, Soccer field, Grass field
