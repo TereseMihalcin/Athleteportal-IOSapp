@@ -6,16 +6,22 @@
 //
 
 import SwiftUI
+import RealmSwift
+import Combine
 
-struct ContentView: View {
-    var body: some View {
-        Text("Test, this is the iOS Athlete Scheduling app!")
-            .padding()
+@main
+struct ContentView: SwiftUI.App {
+    @StateObject private var environmentModel = EnvironmentModel()
+        
+    var body: some Scene {
+        WindowGroup {
+            
+            if let app = app {
+                SyncContentView(app: app)
+                    .environmentObject(environmentModel)
+            }
+            
+        }
     }
 }
 
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView()
-    }
-}

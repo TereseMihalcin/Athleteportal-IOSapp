@@ -1,23 +1,24 @@
 //
-//  PracticeView.swift
+//  EventRowView.swift
 //  AthletePortal
 //
-//  Created by Daniel Williams on 21/03/2021.
+//  Created by Daniel Williams on 29/03/2021.
 //
 
 import SwiftUI
 import RealmSwift
 import Combine
 
-struct PracticeView: View {
+struct EventRowView: View {
     // Will be used to help display dates
     @EnvironmentObject var environmentModel: EnvironmentModel
-    @ObservedRealmObject var schedule: Schedule
+    @ObservedRealmObject var event: Event
     
     var body: some View {
-        // This view is what is show when the "Practices" option is selected from the hamburger navbar. It should display only scheduled events that are listed as "practice" and belong to the sport that has already been selected in the SporSelectView
-        // Properly querying this view for a schedule that only lists practices for a specific team will require my help (Dan), just lmk and we
-        //      can work together on it, it should not take very long at all
+        // This view will be the template for how information about a specific event is displayed on the screen. Based on the designs Patrick created,
+        //      these should have a small, bold print in the top left corner that says the day of the week, and then the actual date, with a
+        //      rounded rectangular box below it displaying the facility and the start and end time like this: "startTime-endTime"
+        // This view will be called many times in many other views as we iterate over differently queried schedules
         Text("Hello, World!")
     }
 }
@@ -28,7 +29,7 @@ struct PracticeView: View {
 
 //struct SportSelectView_Previews: PreviewProvider {
 //    static var previews: some View {
-//        PracticeView()
+//        ProgressView()
 //            .preferredColorScheme(.dark)
 //    }
 //}
