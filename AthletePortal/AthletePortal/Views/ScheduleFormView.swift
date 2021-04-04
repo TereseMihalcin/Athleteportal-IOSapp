@@ -3,7 +3,10 @@
 //  AthletePortal
 //
 //  Created by Daniel Williams on 21/03/2021.
+//  Edited by Terese Mihalcin on 3/04/2021
 //
+// It's not flawless --need to create a funtion to determine which dates are availible/occupied
+//                   --need to find a way to send selected time/facility values to calendarView
 
 import SwiftUI
 import RealmSwift
@@ -14,10 +17,147 @@ struct ScheduleFormView: View {
     @EnvironmentObject var environmentModel: EnvironmentModel
     @ObservedRealmObject var schedule: Schedule
     
+    @State private var expandEvent = false
+    
+    //facilities variables
+    @State private var expandFacility = false
+    @State private var facilityIndex = "--Select Facility--"
+    
+    //facilities array
+    var facilities = ["--Select Facility--",
+                      "Sullivan",
+                      "Sullivan film room",
+                      "Mckenna",
+                      "Mckenna Track",
+                      "Mckenna film room",
+                      "Field House",
+                      "Grass field",
+                      "Baseball",
+                      "Softball",
+                      "Football",
+                      "Soccer"]
+    
+    //Date variables
+    @State private var expandDate = false
+    @State private var scheduleDate = Date()
+    
+    
     var body: some View {
         // This view is the dropdown that allows users to select a facility and time to reserve/schedule a new event. The different sections of the form that users must fill out is "facility" - a dropdown list of all facilities on campus, "time", will allow the user to select a start time and end time, and "type" - this will be a dropdown list of the different team activity types such as practice, lift, meeting, etc.
         // After the form is completed, a function will be called to check the database and see if there is an overlap between times and the selected facility. If there is a conflict, an error message will appear telling the user to select a new time. Again, this will also require my help - Dan.
-        Text("Hello, World!")
+        
+        
+        ScrollView{
+        VStack{
+            HStack{
+                Text("Add Event")
+                    .font(.title)
+                    .padding(5)
+                
+                Image(systemName: "chevron.down")
+                    .resizable().frame(width: 15, height: 15)
+                    
+                    }.onTapGesture {
+                        self.expandEvent.toggle()
+                        
+            }
+            if expandEvent {
+               
+                Button(action: {
+                    
+                })
+                {
+                    Text("Facility")
+                        .padding(7)
+                        .font(.title)
+                        .background(Color.red)
+                        .cornerRadius(10)
+                        .foregroundColor(Color.white)
+                         
+                        .onTapGesture {
+                            self.expandFacility.toggle()
+                        }
+
+                        
+                }
+                // could make it so you must click facility before time but not going to for time constraints
+                    
+                if expandFacility {
+                    
+                    
+                   
+                    Section {
+                        Picker (selection : $facilityIndex, label :
+                                    Text("Facilities")) {
+                            ForEach(facilities, id: \.self) {
+                                Text($0)
+                            }
+                        }
+                    } .padding(.bottom, 10.0)
+                    // make a list of all availible facility times
+                }
+            
+               
+                Button(action: {
+                })
+                {
+                    Text("Date")
+                        .padding(7)
+                        .font(.title)
+                        .background(Color.red)
+                        .cornerRadius(10)
+                        .foregroundColor(Color.white)
+                        
+                        .onTapGesture {
+                            self.expandDate.toggle()
+                        }
+                
+                }
+                
+                if expandDate {
+                    //select date and time with DatePicker
+                    Section {
+                        DatePicker("Date", selection: $scheduleDate, displayedComponents: [.date, .hourAndMinute])
+                            .datePickerStyle(WheelDatePickerStyle())
+                            .labelsHidden()
+                            .frame(maxHeight: 400)
+                            
+                           
+                    } .padding(.bottom, 10.0)
+                    
+                }
+                Button(action: {
+                })
+                {
+                 
+                    
+                    Text("Add '\(facilityIndex) on \(scheduleDate)' to Calendar")
+                        .padding(20)
+                        .font(.title2)
+                        .background(Color.yellow)
+                        .cornerRadius(10)
+                        .foregroundColor(Color.black)
+                    
+                }
+            }
+          
+            
+                    
+            
+        }
+        // the stylization for the Add Event drop down menu
+        .padding(0)
+        .border(Color.red, width: 3)
+        .animation(.spring())
+        .position(x: 160, y: 200)
+        
+
+        
+        
+        
+        
+     
+    }
     }
 }
 
