@@ -2,8 +2,9 @@
 //  ScheduleFormView.swift
 //  AthletePortal
 //
-//  Created by Daniel Williams on 21/03/2021.
+//  Created by Daniel Williams on 3/21/2021.
 //  Edited by Terese Mihalcin on 3/04/2021
+//  Edited by Dan Williams on 4/6/21
 //
 // It's not flawless --need to create a funtion to determine which dates are availible/occupied
 //                   --need to find a way to send selected time/facility values to calendarView
@@ -39,13 +40,26 @@ struct ScheduleFormView: View {
     
     //Date variables
     @State private var expandDate = false
-    @State private var scheduleDate = Date()
+    @State private var scheduleStartDate = Date()
+    @State private var scheduleEndDate = Date()
     
     
     var body: some View {
         // This view is the dropdown that allows users to select a facility and time to reserve/schedule a new event. The different sections of the form that users must fill out is "facility" - a dropdown list of all facilities on campus, "time", will allow the user to select a start time and end time, and "type" - this will be a dropdown list of the different team activity types such as practice, lift, meeting, etc.
         // After the form is completed, a function will be called to check the database and see if there is an overlap between times and the selected facility. If there is a conflict, an error message will appear telling the user to select a new time. Again, this will also require my help - Dan.
         
+        // Event that will be updated as the user selects values for it, and will eventually be pushed to database
+        let newEvent = Event(value: [
+                            "_id": ObjectId.generate(),
+                            "facility": $facilityIndex,
+                            "team": environmentModel.currentSport,
+                            "eventType": "Practice",
+                            "startDateTime": $scheduleStartDate,
+                            "endDateTime": $scheduleEndDate,
+        ])
+        // List of all events currently in the db, will be referenced to check for overlapping times
+        let events = schedule.events
+
         
         ScrollView{
         VStack{
@@ -117,7 +131,11 @@ struct ScheduleFormView: View {
                 if expandDate {
                     //select date and time with DatePicker
                     Section {
-                        DatePicker("Date", selection: $scheduleDate, displayedComponents: [.date, .hourAndMinute])
+                        DatePicker("Start Date/Time", selection: $scheduleStartDate, displayedComponents: [.date, .hourAndMinute])
+                            .datePickerStyle(WheelDatePickerStyle())
+                            .labelsHidden()
+                            .frame(maxHeight: 400)
+                        DatePicker("End Date/Time", selection: $scheduleEndDate, displayedComponents: [.date, .hourAndMinute])
                             .datePickerStyle(WheelDatePickerStyle())
                             .labelsHidden()
                             .frame(maxHeight: 400)
@@ -127,11 +145,32 @@ struct ScheduleFormView: View {
                     
                 }
                 Button(action: {
+                    
+                    // Check to see if the contents of $facilityIndex and $scheduleDate are already taken
+                    for event in events {
+                        if (event.startDateTime == scheduleStartDate && event.facility == facilityIndex) {
+                            Text("Could not create event, there is a conflict with another event, please try again.")
+                            print("Could not create event, there is a conflict with another event, please try again.")
+                        } else if (event.startDateTime < scheduleEndDate && event.startDateTime > scheduleStartDate && event.facility == facilityIndex) {
+                            Text("Could not create event, there is a conflict with another event, please try again.")
+                            print("Could not create event, there is a conflict with another event, please try again.")
+                        } else if (event.endDateTime > scheduleStartDate && event.endDateTime < scheduleEndDate && event.facility == facilityIndex) {
+                            Text("Could not create event, there is a conflict with another event, please try again.")
+                            print("Could not create event, there is a conflict with another event, please try again.")
+                        } else {
+                            // Create new Event and push the contents to DB
+                            $schedule.events.append(newEvent)
+                            // Print to console to confirm the write and Event creation was successful
+                            print("New event added!")
+                        }
+                    }
+                       
+                    
                 })
                 {
                  
                     
-                    Text("Add '\(facilityIndex) on \(scheduleDate)' to Calendar")
+                    Text("Add '\(facilityIndex) starting at \(scheduleStartDate)' to Calendar")
                         .padding(20)
                         .font(.title2)
                         .background(Color.yellow)
