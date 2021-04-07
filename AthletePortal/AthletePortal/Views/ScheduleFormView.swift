@@ -135,7 +135,7 @@ struct ScheduleFormView: View {
                             .datePickerStyle(WheelDatePickerStyle())
                             .labelsHidden()
                             .frame(maxHeight: 400)
-                        DatePicker("End Date/Time", selection: $scheduleEndDate, displayedComponents: [.date, .hourAndMinute])
+                        DatePicker("End Date/Time", selection: $scheduleEndDate, displayedComponents: .hourAndMinute)
                             .datePickerStyle(WheelDatePickerStyle())
                             .labelsHidden()
                             .frame(maxHeight: 400)
