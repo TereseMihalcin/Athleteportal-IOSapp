@@ -18,7 +18,7 @@ struct CalendarView: View {
         // This view is what is displayed when the calender icon is selected from the calendar icon on the default navbar. It should display all upcoming scheduled events based on the selected sport in SportSelectView
         // Similar to PracticeView, querying the group so that it displays events based on startTime may require my help as well - Dan, just
         //      reach out and we can figure it out together
-        Text("Hello, World!")
+        Text("Calendar View")
     }
 }
 

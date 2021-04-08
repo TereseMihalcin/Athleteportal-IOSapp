@@ -12,22 +12,24 @@ import Combine
 // This file will contain all of the data models and the Realm sync connection
 
 // Realm sync connection
-let app: RealmSwift.App? = RealmSwift.App(id: "athlete_scheduling-tfwgg")
+let app: RealmSwift.App = RealmSwift.App(id: "cs374_athlete_scheduling-uwrrb")
 
 // Defining the model for an Event
 final class Event: Object, ObjectKeyIdentifiable {
     // Unique ID
     @objc dynamic var _id = ObjectId.generate()
     
+    @objc dynamic var _partitionKey = ObjectId.generate()
+    
+    // The type of event that is taking place. Should be one of these:
+    //      Practice, Lift, Meeting, Conditioning, Game
+    @objc dynamic var title = ""
+    
     // The facility where the event will take place
     @objc dynamic var facility = ""
     
     // The team that is associated with the event (will be updated further when users are implemented)
     @objc dynamic var team = ""
-    
-    // The type of event that is taking place. Should be one of these:
-    //      Practice, Lift, Meeting, Conditioning, Game
-    @objc dynamic var eventType = ""
     
     // The date and time when this event starts
     @objc dynamic var startDateTime = Date()
@@ -48,6 +50,8 @@ final class Event: Object, ObjectKeyIdentifiable {
 final class Schedule: Object, ObjectKeyIdentifiable {
     // Unique ID
     @objc dynamic var _id = ObjectId.generate()
+    
+    @objc dynamic var _partitionKey = ObjectId.generate()
     
     // the collection of Events in this schedule
     var events = RealmSwift.List<Event>()

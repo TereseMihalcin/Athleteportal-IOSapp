@@ -10,6 +10,7 @@ import RealmSwift
 import Combine
 
 struct SportSelectView: View {
+    @EnvironmentObject var environmentModel: EnvironmentModel
     // Hold an error if one occurs so we can display it
     @State var error: Error?
     
@@ -45,7 +46,8 @@ struct SportSelectView: View {
                         return
                     }
                     // Other views that are observing the app will detect the the currentUser has changed. Nothing more to do
-                    print("Logged in")
+//                    environmentModel.currentSport = "Baseball"
+                    print("Baseball user was logged in properly")
                 }
             }.disabled(isLoggingIn)
         }

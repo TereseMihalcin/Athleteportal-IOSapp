@@ -19,7 +19,7 @@ struct EventRowView: View {
         //      these should have a small, bold print in the top left corner that says the day of the week, and then the actual date, with a
         //      rounded rectangular box below it displaying the facility and the start and end time like this: "startTime-endTime"
         // This view will be called many times in many other views as we iterate over differently queried schedules
-        Text("Hello, World!")
+        Text("Event Row View")
     }
 }
 

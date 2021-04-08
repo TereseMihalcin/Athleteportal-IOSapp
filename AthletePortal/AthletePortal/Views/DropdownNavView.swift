@@ -16,7 +16,7 @@ struct DropdownNavView: View {
     var body: some View {
         // This is the small dropdown list of buttons that appears when tapping the hamburger icon from the default nav bar that is always displayed at the top of the app
         // As of right now, the only options should be "Dashboard" and "Practices"
-        Text("Hello, World!")
+        Text("Dropdown Nav bar view")
     }
 }
 

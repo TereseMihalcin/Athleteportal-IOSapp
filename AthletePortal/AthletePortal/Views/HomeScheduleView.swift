@@ -18,9 +18,39 @@ struct HomeScheduleView: View {
     var leadingBarButton: AnyView?
     
     var body: some View {
+        
         // This view specifically should organize the schedule displayed by a selected team, this selected team will be referenced in the Object Model, and chosen in the SportSelectView
         // This view is also what appears when the "Dashboard" option is selected from the hamburger navbar
-        Text("Hello, World!")
+        Text("Home Schedule View")
+        
+        
+        
+        // FOR TESTING ONLY - PLEASE DONT TOUCH
+//        let newEvent = Event(value: [
+//                            "_id": ObjectId.generate(),
+//                            "_partitionKey": ObjectId.generate(),
+//                            "title": "Practice",
+//                            "facility": "Sullivan Gym",
+//                            "team": environmentModel.currentSport,
+//                            "startDateTime": Date(),
+//                            "endDateTime": Date().addingTimeInterval(10800),
+//        ])
+//        let events = schedule.events
+        
+        // FOR TESTING ONLY - PLEASE DONT TOUCH
+//        VStack {
+//            Text("Home Schedule View")
+//            Button {
+//                print("Events before test upload: \(events)")
+//                $schedule.events.append(newEvent)
+//                print("Events after test upload: \(events)")
+//            } label: {
+//                Text("Generate new Event")
+//            }
+//        }
+        
+        
+        
     }
 }
 

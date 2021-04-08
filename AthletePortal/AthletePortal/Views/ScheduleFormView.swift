@@ -51,6 +51,7 @@ struct ScheduleFormView: View {
         // Event that will be updated as the user selects values for it, and will eventually be pushed to database
         let newEvent = Event(value: [
                             "_id": ObjectId.generate(),
+                            "_partitionKey": ObjectId.generate(),
                             "facility": $facilityIndex,
                             "team": environmentModel.currentSport,
                             "eventType": "Practice",

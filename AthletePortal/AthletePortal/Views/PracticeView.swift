@@ -18,7 +18,7 @@ struct PracticeView: View {
         // This view is what is show when the "Practices" option is selected from the hamburger navbar. It should display only scheduled events that are listed as "practice" and belong to the sport that has already been selected in the SporSelectView
         // Properly querying this view for a schedule that only lists practices for a specific team will require my help (Dan), just lmk and we
         //      can work together on it, it should not take very long at all
-        Text("Hello, World!")
+        Text("Practice View")
     }
 }
 

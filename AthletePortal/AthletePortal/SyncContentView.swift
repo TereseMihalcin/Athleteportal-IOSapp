@@ -15,23 +15,32 @@ struct SyncContentView: View {
     // Observe a realm that may be opened after login
     @State var realm: Realm?
     
+    let partitionValue: ObjectId = ObjectId.generate()
+    
     var body: AnyView {
-        // If there is not coach logged in, show the SportSelctView to log them in
+        // If there is not a coach logged in, show the SportSelctView to log them in
         guard let user = app.currentUser else {
             return AnyView(SportSelectView(app: app))
         }
         // If a user is logged in but the realm is not open yet, then show a progress spinner while opening it
         // Realm.asyncOpen() downloads the remote changes before the realm opens, which may take a moment
         guard let realm = realm else {
+            print("Attempting to open synced Realm...")
             return AnyView(ProgressView()
-                            .onReceive(Realm.asyncOpen(configuration: user.configuration(partitionValue: user.id)).assertNoFailure()) { realm in
+                            .onReceive(Realm.asyncOpen(configuration: user.configuration(partitionValue: partitionValue)).assertNoFailure()) { realm in
+                                print("Successfully opened realm \(realm)")
                                 // Preload one schedule if it doesn't exist. This app only allows one group (schedule) per user partition
+//                                print(realm.schema)
+                                print(realm)
                                 if realm.objects(Schedule.self).count == 0 {
+                                    print("realm was found to not have a Schedule yet")
                                     try! realm.write {
                                         realm.add(Schedule())
+                                        print("Schedule successfully added to the realm")
                                     }
                                 }
                                 // Assign the realm to the state property to trigger a view refresh
+                                print("Realm found to already contain a Schedule")
                                 self.realm = realm
         })
     }
