@@ -5,6 +5,7 @@
 //  Created by Daniel Williams on 30/03/2021.
 //
 
+import Foundation
 import SwiftUI
 import RealmSwift
 import Combine

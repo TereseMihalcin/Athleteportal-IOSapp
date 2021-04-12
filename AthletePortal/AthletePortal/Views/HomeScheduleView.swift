@@ -5,38 +5,57 @@
 //  Created by Daniel Williams on 21/03/2021.
 //
 
+import Foundation
 import SwiftUI
 import RealmSwift
 import Combine
 
 struct HomeScheduleView: View {
-    // Will be used to help display dates
+    // Environment Object to help keep track of sports team
     @EnvironmentObject var environmentModel: EnvironmentModel
-    @ObservedRealmObject var schedule: Schedule
     
-    // Button to be displayed on the top left (should always be logout button
+    // Results containing all events from the database - var will be used when creating schedule list
+    @ObservedResults(Event.self) var events
+    
+    // Button to be displayed on the top left (should always be logout button)
     var leadingBarButton: AnyView?
     
     var body: some View {
+        // Query to modify the db results to fit the "schedule view" format of being in timed order
+        let schedule = events.sorted(byKeyPath: "startDateTime", ascending: true)
         
         // This view specifically should organize the schedule displayed by a selected team, this selected team will be referenced in the Object Model, and chosen in the SportSelectView
         // This view is also what appears when the "Dashboard" option is selected from the hamburger navbar
-        Text("Home Schedule View")
+        VStack {
+            // Navbar gets added to the top of every view we use
+            NavbarView()
+                .environment(\.realmConfiguration,
+                             app.currentUser!.configuration(partitionValue: partitionValue))
+            
+            // Replace this with the actual UI code:
+            Text("Home Schedule View")
+            List {
+                ForEach (events) { event in
+                    Text(event.facility)
+                }
+            }
+            
+        }
         
         
         
         // FOR TESTING ONLY - PLEASE DONT TOUCH
-//        let newEvent = Event(value: [
-//                            "_id": ObjectId.generate(),
-//                            "_partitionKey": ObjectId.generate(),
-//                            "title": "Practice",
-//                            "facility": "Sullivan Gym",
-//                            "team": environmentModel.currentSport,
-//                            "startDateTime": Date(),
-//                            "endDateTime": Date().addingTimeInterval(10800),
+//        let newEvent = Event(value:[
+//            _id = ObjectId.generate(),
+//            "_partitionKey" = "masterSchedule",
+//            "title" = "Practice",
+//            "team" = "Baseball",
+//            "facility" = "Sullivan Gym",
+//            "startDateTime" = Date(),
+//            "endDateTime" = Date().addingTimeInterval(10800),
 //        ])
 //        let events = schedule.events
-        
+//
         // FOR TESTING ONLY - PLEASE DONT TOUCH
 //        VStack {
 //            Text("Home Schedule View")

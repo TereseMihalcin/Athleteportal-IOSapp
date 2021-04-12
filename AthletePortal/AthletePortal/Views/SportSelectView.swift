@@ -5,6 +5,7 @@
 //  Created by Daniel Williams on 21/03/2021.
 //
 
+import Foundation
 import SwiftUI
 import RealmSwift
 import Combine
@@ -17,7 +18,7 @@ struct SportSelectView: View {
     // Keep track of whether login is in process or not
     @State var isLoggingIn = false
     
-    // The instance of our Realm app passed down fron SyncContenteView
+    // The instance of our Realm app passed down fron SyncContentView
     @ObservedObject var app: RealmSwift.App
     
     var body: some View {
@@ -35,7 +36,7 @@ struct SportSelectView: View {
             //      As of right now, only a login for baseball shows up. The code needs to be copied and pasted and then needs updated for each
             //      respective sport the button is for, along with any styles you apply to it through SwiftUI modifiers.
             Button("Baseball Log In") {
-                // Button has been pressed, so log them in (and display ProgressView
+                // Button has been pressed, so log them in (and display ProgressView)
                 isLoggingIn = true
                 app.login(credentials: .anonymous) { result in
                     isLoggingIn = false

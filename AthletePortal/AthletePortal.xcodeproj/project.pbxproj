@@ -15,10 +15,10 @@
 		0E78C3502612DFBD005E119E /* LogoutButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E78C34F2612DFBD005E119E /* LogoutButtonView.swift */; };
 		0E8DAE6D26081FE500CAB8CA /* SportSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE6C26081FE500CAB8CA /* SportSelectView.swift */; };
 		0E8DAE712608208A00CAB8CA /* HomeScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE702608208A00CAB8CA /* HomeScheduleView.swift */; };
-		0E8DAE772608222A00CAB8CA /* DropdownNavView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE762608222A00CAB8CA /* DropdownNavView.swift */; };
 		0E8DAE7B2608227B00CAB8CA /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE7A2608227B00CAB8CA /* PracticeView.swift */; };
 		0E8DAE7E260822DC00CAB8CA /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE7D260822DC00CAB8CA /* CalendarView.swift */; };
 		0E8DAE822608231F00CAB8CA /* ScheduleFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE812608231F00CAB8CA /* ScheduleFormView.swift */; };
+		0E9438E12623E6D100B1B462 /* NavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9438E02623E6D100B1B462 /* NavbarView.swift */; };
 		0EDA7CF026023AD300DBC842 /* AthletePortalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA7CEF26023AD300DBC842 /* AthletePortalApp.swift */; };
 		0EDA7CF226023AD300DBC842 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA7CF126023AD300DBC842 /* ContentView.swift */; };
 		0EDA7CF426023AD700DBC842 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA7CF326023AD700DBC842 /* Assets.xcassets */; };
@@ -32,10 +32,10 @@
 		0E78C34F2612DFBD005E119E /* LogoutButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButtonView.swift; sourceTree = "<group>"; };
 		0E8DAE6C26081FE500CAB8CA /* SportSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportSelectView.swift; sourceTree = "<group>"; };
 		0E8DAE702608208A00CAB8CA /* HomeScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScheduleView.swift; sourceTree = "<group>"; };
-		0E8DAE762608222A00CAB8CA /* DropdownNavView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropdownNavView.swift; sourceTree = "<group>"; };
 		0E8DAE7A2608227B00CAB8CA /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
 		0E8DAE7D260822DC00CAB8CA /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
 		0E8DAE812608231F00CAB8CA /* ScheduleFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleFormView.swift; sourceTree = "<group>"; };
+		0E9438E02623E6D100B1B462 /* NavbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarView.swift; sourceTree = "<group>"; };
 		0EDA7CEC26023AD300DBC842 /* AthletePortal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AthletePortal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDA7CEF26023AD300DBC842 /* AthletePortalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthletePortalApp.swift; sourceTree = "<group>"; };
 		0EDA7CF126023AD300DBC842 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -71,10 +71,10 @@
 				0E8DAE6C26081FE500CAB8CA /* SportSelectView.swift */,
 				0E8DAE702608208A00CAB8CA /* HomeScheduleView.swift */,
 				0E8DAE7A2608227B00CAB8CA /* PracticeView.swift */,
-				0E8DAE762608222A00CAB8CA /* DropdownNavView.swift */,
 				0E8DAE7D260822DC00CAB8CA /* CalendarView.swift */,
 				0E8DAE812608231F00CAB8CA /* ScheduleFormView.swift */,
 				0E78C3442612D2B2005E119E /* EventRowView.swift */,
+				0E9438E02623E6D100B1B462 /* NavbarView.swift */,
 				0E78C34F2612DFBD005E119E /* LogoutButtonView.swift */,
 			);
 			path = Views;
@@ -198,6 +198,7 @@
 				0EDA7CF226023AD300DBC842 /* ContentView.swift in Sources */,
 				0E8DAE7E260822DC00CAB8CA /* CalendarView.swift in Sources */,
 				0E8DAE7B2608227B00CAB8CA /* PracticeView.swift in Sources */,
+				0E9438E12623E6D100B1B462 /* NavbarView.swift in Sources */,
 				0E8DAE6D26081FE500CAB8CA /* SportSelectView.swift in Sources */,
 				0E8DAE712608208A00CAB8CA /* HomeScheduleView.swift in Sources */,
 				0E78C3452612D2B2005E119E /* EventRowView.swift in Sources */,
@@ -206,7 +207,6 @@
 				0E78C3502612DFBD005E119E /* LogoutButtonView.swift in Sources */,
 				0E8DAE822608231F00CAB8CA /* ScheduleFormView.swift in Sources */,
 				0EDA7CF026023AD300DBC842 /* AthletePortalApp.swift in Sources */,
-				0E8DAE772608222A00CAB8CA /* DropdownNavView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

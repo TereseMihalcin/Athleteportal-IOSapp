@@ -9,6 +9,7 @@
 // It's not flawless --need to create a funtion to determine which dates are availible/occupied
 //                   --need to find a way to send selected time/facility values to calendarView
 
+import Foundation
 import SwiftUI
 import RealmSwift
 import Combine
@@ -16,7 +17,12 @@ import Combine
 struct ScheduleFormView: View {
     // Will be used to help display dates and use the logged in team as a default team for a new Event
     @EnvironmentObject var environmentModel: EnvironmentModel
-    @ObservedRealmObject var schedule: Schedule
+    
+    // Results containing all events from the database - var will be used when creating schedule list
+    @ObservedResults(Event.self) var events
+    
+    // The realm app itself we have loaded and are referencing throughout the app, we need this to push new events to it
+    @Environment(\.realm) var eventRealm
     
     @State private var expandEvent = false
     
@@ -51,7 +57,7 @@ struct ScheduleFormView: View {
         // Event that will be updated as the user selects values for it, and will eventually be pushed to database
         let newEvent = Event(value: [
                             "_id": ObjectId.generate(),
-                            "_partitionKey": ObjectId.generate(),
+                            "_partitionKey": "masterSchedule",
                             "facility": $facilityIndex,
                             "team": environmentModel.currentSport,
                             "eventType": "Practice",
@@ -59,7 +65,7 @@ struct ScheduleFormView: View {
                             "endDateTime": $scheduleEndDate,
         ])
         // List of all events currently in the db, will be referenced to check for overlapping times
-        let events = schedule.events
+//        let events = schedule.events
 
         
         ScrollView{
@@ -160,7 +166,9 @@ struct ScheduleFormView: View {
                             print("Could not create event, there is a conflict with another event, please try again.")
                         } else {
                             // Create new Event and push the contents to DB
-                            $schedule.events.append(newEvent)
+                            try! eventRealm.write {
+                                eventRealm.add(newEvent)
+                            }                        
                             // Print to console to confirm the write and Event creation was successful
                             print("New event added!")
                         }

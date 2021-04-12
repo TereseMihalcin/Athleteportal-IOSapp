@@ -5,6 +5,7 @@
 //  Created by Daniel Williams on 17/03/2021.
 //
 
+import Foundation
 import SwiftUI
 import RealmSwift
 import Combine
@@ -15,7 +16,6 @@ struct ContentView: SwiftUI.App {
         
     var body: some Scene {
         WindowGroup {
-            
             if let app = app {
                 SyncContentView(app: app)
                     .environmentObject(environmentModel)
