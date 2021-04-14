@@ -12,53 +12,35 @@ import Combine
 
 struct SportSelectView: View {
     @EnvironmentObject var environmentModel: EnvironmentModel
-    // Hold an error if one occurs so we can display it
-    @State var error: Error?
     
-    // Keep track of whether login is in process or not
-    @State var isLoggingIn = false
+    // The realm we are working in
+    @Environment(\.realm) var realm
     
-    // The instance of our Realm app passed down fron SyncContentView
-    @ObservedObject var app: RealmSwift.App
-    
+    // Results containing all events from the database - var will be used when creating schedule list
+    @ObservedResults(Event.self) var events
+            
     var body: some View {
         // This view will be the initial screen viewed upon opening the app. It will prompt the user to select a sport, and then upon selecting a sport, it will authenticate them as their sports respective coach, this will then be stored for convenience sake when showing schedules and scheduling new events
         // While we are using authenticating users on the backend, they are technically anonymous, and their sport is being saved in an @EnvironmentObject for later use
         
-        VStack {
-            if isLoggingIn {
-                ProgressView()
+        NavigationView {
+            VStack {
+                // FRONTEND PEOPLE WORKING ON THIS VIEW: Lines 29-34 contain everything needed to create one login button for one sport (in this case, baseball)
+                //      In order to make a button for every sport, lines 29-34 just need to be copied and pasted, with the text displaying a team name needing changed
+                //          on each one (aka, wherever is says 'baseball'
+                Button("Login as Baseball Coach",action: {
+                    environmentModel.currentSport = "Baseball"
+                    NavigationLink("", destination: HomeScheduleView()
+                        .environment(\.realmConfiguration,
+                                     app.currentUser!.configuration(partitionValue: partitionValue)))
+                })
             }
-            if let error = error {
-                Text("Error: \(error.localizedDescription)")
-            }
-            // FRONTEND PEOPLE WORKING ON THIS VIEW: Lines 36-50 contain the code that must be replicated for each individual login button.
-            //      As of right now, only a login for baseball shows up. The code needs to be copied and pasted and then needs updated for each
-            //      respective sport the button is for, along with any styles you apply to it through SwiftUI modifiers.
-            Button("Baseball Log In") {
-                // Button has been pressed, so log them in (and display ProgressView)
-                isLoggingIn = true
-                app.login(credentials: .anonymous) { result in
-                    isLoggingIn = false
-                    if case let .failure(error) = result {
-                        print("Failed to log in: \(error.localizedDescription)")
-                        // Set error to observed property so it can be displayed
-                        self.error = error
-                        return
-                    }
-                    // Other views that are observing the app will detect the the currentUser has changed. Nothing more to do
-//                    environmentModel.currentSport = "Baseball"
-                    print("Baseball user was logged in properly")
-                }
-            }.disabled(isLoggingIn)
         }
         
     }
 }
 
-// I'm not quite sure how to make these MongoDB data models work in previews because of how they are passed down from view to view
-//      If you need to test or look at the view, either load it in the simulator, or comment out the @ObservedRealmObject above, update the
-//      dependencies in the code, and then use the preview code below. Let me know if you have questions or if that doesn't make sense
+// For some reason I think I was able to get the other previews working, but this one does not work and I have no idea why
 
 //struct SportSelectView_Previews: PreviewProvider {
 //    static var previews: some View {

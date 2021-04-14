@@ -28,12 +28,12 @@ struct EventRowView: View {
     }
 }
 
-// I'm not quite sure how to make these MongoDB data models work in previews because of how they are passed down from view to view
-//      If you need to test or look at the view, either load it in the simulator, or comment out the @ObservedRealmObject above, update the
-//      dependencies in the code, and then use the preview code below. Let me know if you have questions or if that doesn't make sense
-//struct SportSelectView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ProgressView()
-//            .preferredColorScheme(.dark)
-//    }
-//}
+struct EventRow_Previews: PreviewProvider {
+    static var previews: some View {
+        ProgressView()
+            .preferredColorScheme(.dark)
+            .environment(\.realmConfiguration,
+                          app.currentUser!.configuration(partitionValue: "masterSchedule"))
+
+    }
+}

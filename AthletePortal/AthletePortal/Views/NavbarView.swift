@@ -14,6 +14,9 @@ struct NavbarView: View {
     // Environment Object to help keep track of sports team
     @EnvironmentObject var environmentModel: EnvironmentModel
     
+    // Results containing all events from the database - var will be used when creating schedule list
+    @ObservedResults(Event.self) var events
+    
     // Instance of the realm that may or may not be necessary when loading all of the separate views (not entirely sure)
     @Environment(\.realm) var eventRealm
     
@@ -30,5 +33,9 @@ struct NavbarView: View {
 struct NavbarView_Previews: PreviewProvider {
     static var previews: some View {
         NavbarView()
+            .preferredColorScheme(.dark)
+            .environment(\.realmConfiguration,
+                          app.currentUser!.configuration(partitionValue: "masterSchedule"))
+
     }
 }

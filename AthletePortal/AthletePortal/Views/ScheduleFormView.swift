@@ -22,9 +22,12 @@ struct ScheduleFormView: View {
     @ObservedResults(Event.self) var events
     
     // The realm app itself we have loaded and are referencing throughout the app, we need this to push new events to it
-    @Environment(\.realm) var eventRealm
+    @Environment(\.realm) var realm
     
     @State private var expandEvent = false
+    
+    // Event name variables
+    @State private var eventTitle: String = ""
     
     //facilities variables
     @State private var expandFacility = false
@@ -60,7 +63,7 @@ struct ScheduleFormView: View {
                             "_partitionKey": "masterSchedule",
                             "facility": $facilityIndex,
                             "team": environmentModel.currentSport,
-                            "eventType": "Practice",
+                            "eventType": $eventTitle,
                             "startDateTime": $scheduleStartDate,
                             "endDateTime": $scheduleEndDate,
         ])
@@ -84,6 +87,9 @@ struct ScheduleFormView: View {
             }
             if expandEvent {
                
+                // Enter the name of the event
+                TextField("Practice/Lift/Meeting/Conditioning/Game", text: $eventTitle)
+                
                 Button(action: {
                     
                 })
@@ -166,9 +172,10 @@ struct ScheduleFormView: View {
                             print("Could not create event, there is a conflict with another event, please try again.")
                         } else {
                             // Create new Event and push the contents to DB
-                            try! eventRealm.write {
-                                eventRealm.add(newEvent)
-                            }                        
+                            // Make sure to wrap this write in a try/catch - Mongodb just cancels the write if there's a problem
+                            try! realm.write {
+                                realm.add(newEvent)
+                            }
                             // Print to console to confirm the write and Event creation was successful
                             print("New event added!")
                         }
@@ -199,23 +206,18 @@ struct ScheduleFormView: View {
         .animation(.spring())
         .position(x: 160, y: 200)
         
-
-        
-        
-        
         
      
     }
     }
 }
 
-// I'm not quite sure how to make these MongoDB data models work in previews because of how they are passed down from view to view
-//      If you need to test or look at the view, either load it in the simulator, or comment out the @ObservedRealmObject above, update the
-//      dependencies in the code, and then use the preview code below. Let me know if you have questions or if that doesn't make sense
+struct ScheduleFormView_Previews: PreviewProvider {
+    static var previews: some View {
+        ScheduleFormView()
+            .preferredColorScheme(.dark)
+            .environment(\.realmConfiguration,
+                          app.currentUser!.configuration(partitionValue: "masterSchedule"))
 
-//struct SportSelectView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ScheduleFormView()
-//            .preferredColorScheme(.dark)
-//    }
-//}
+    }
+}
