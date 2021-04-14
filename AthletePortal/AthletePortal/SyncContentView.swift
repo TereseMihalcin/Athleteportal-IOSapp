@@ -16,7 +16,7 @@ struct SyncContentView: View {
     
     var body: AnyView {
         
-        return AnyView(HomeScheduleView()
+        return AnyView(SportSelectView()
             .environment(\.realmConfiguration,
                          app.currentUser!.configuration(partitionValue: partitionValue)))
         

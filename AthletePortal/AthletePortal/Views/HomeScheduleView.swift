@@ -38,10 +38,6 @@ struct HomeScheduleView: View {
             // Replace this with the actual UI code:
             Text("Home Schedule View")
             
-            ForEach (events) { event in
-                Text(event.facility)
-            }
-            
         }        
     }
 }
