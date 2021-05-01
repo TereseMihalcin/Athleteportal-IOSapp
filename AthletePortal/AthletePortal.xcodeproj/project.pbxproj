@@ -14,15 +14,16 @@
 		0E78C34B2612D435005E119E /* EnvironmentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E78C34A2612D435005E119E /* EnvironmentModel.swift */; };
 		0E78C3502612DFBD005E119E /* LogoutButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E78C34F2612DFBD005E119E /* LogoutButtonView.swift */; };
 		0E8DAE6D26081FE500CAB8CA /* SportSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE6C26081FE500CAB8CA /* SportSelectView.swift */; };
-		0E8DAE712608208A00CAB8CA /* HomeScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE702608208A00CAB8CA /* HomeScheduleView.swift */; };
-		0E8DAE7B2608227B00CAB8CA /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE7A2608227B00CAB8CA /* PracticeView.swift */; };
-		0E8DAE7E260822DC00CAB8CA /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE7D260822DC00CAB8CA /* CalendarView.swift */; };
-		0E8DAE822608231F00CAB8CA /* ScheduleFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E8DAE812608231F00CAB8CA /* ScheduleFormView.swift */; };
 		0E9438E12623E6D100B1B462 /* NavbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9438E02623E6D100B1B462 /* NavbarView.swift */; };
+		0E96F015263C80E000BA3C25 /* HomeScheduleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96F014263C80E000BA3C25 /* HomeScheduleView.swift */; };
+		0E96F019263C84DD00BA3C25 /* PracticeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96F018263C84DD00BA3C25 /* PracticeView.swift */; };
+		0E96F01C263C892300BA3C25 /* CalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96F01B263C892300BA3C25 /* CalendarView.swift */; };
+		0E96F01F263C89CE00BA3C25 /* ScheduleFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E96F01E263C89CE00BA3C25 /* ScheduleFormView.swift */; };
 		0EDA7CF026023AD300DBC842 /* AthletePortalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA7CEF26023AD300DBC842 /* AthletePortalApp.swift */; };
 		0EDA7CF226023AD300DBC842 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EDA7CF126023AD300DBC842 /* ContentView.swift */; };
 		0EDA7CF426023AD700DBC842 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA7CF326023AD700DBC842 /* Assets.xcassets */; };
 		0EDA7CF726023AD700DBC842 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EDA7CF626023AD700DBC842 /* Preview Assets.xcassets */; };
+		0EEF44CF26361D1E005A0D62 /* NavContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EEF44CE26361D1E005A0D62 /* NavContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,17 +32,18 @@
 		0E78C34A2612D435005E119E /* EnvironmentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnvironmentModel.swift; sourceTree = "<group>"; };
 		0E78C34F2612DFBD005E119E /* LogoutButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoutButtonView.swift; sourceTree = "<group>"; };
 		0E8DAE6C26081FE500CAB8CA /* SportSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SportSelectView.swift; sourceTree = "<group>"; };
-		0E8DAE702608208A00CAB8CA /* HomeScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScheduleView.swift; sourceTree = "<group>"; };
-		0E8DAE7A2608227B00CAB8CA /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
-		0E8DAE7D260822DC00CAB8CA /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
-		0E8DAE812608231F00CAB8CA /* ScheduleFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleFormView.swift; sourceTree = "<group>"; };
 		0E9438E02623E6D100B1B462 /* NavbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavbarView.swift; sourceTree = "<group>"; };
+		0E96F014263C80E000BA3C25 /* HomeScheduleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScheduleView.swift; sourceTree = "<group>"; };
+		0E96F018263C84DD00BA3C25 /* PracticeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PracticeView.swift; sourceTree = "<group>"; };
+		0E96F01B263C892300BA3C25 /* CalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarView.swift; sourceTree = "<group>"; };
+		0E96F01E263C89CE00BA3C25 /* ScheduleFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduleFormView.swift; sourceTree = "<group>"; };
 		0EDA7CEC26023AD300DBC842 /* AthletePortal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AthletePortal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EDA7CEF26023AD300DBC842 /* AthletePortalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AthletePortalApp.swift; sourceTree = "<group>"; };
 		0EDA7CF126023AD300DBC842 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		0EDA7CF326023AD700DBC842 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EDA7CF626023AD700DBC842 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		0EDA7CF826023AD700DBC842 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EEF44CE26361D1E005A0D62 /* NavContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,13 +70,13 @@
 		0E8DAE6A26081EE100CAB8CA /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0EEF44CD26361CF9005A0D62 /* Navbar */,
 				0E8DAE6C26081FE500CAB8CA /* SportSelectView.swift */,
-				0E8DAE702608208A00CAB8CA /* HomeScheduleView.swift */,
-				0E8DAE7A2608227B00CAB8CA /* PracticeView.swift */,
-				0E8DAE7D260822DC00CAB8CA /* CalendarView.swift */,
-				0E8DAE812608231F00CAB8CA /* ScheduleFormView.swift */,
+				0E96F014263C80E000BA3C25 /* HomeScheduleView.swift */,
+				0E96F01B263C892300BA3C25 /* CalendarView.swift */,
+				0E96F018263C84DD00BA3C25 /* PracticeView.swift */,
+				0E96F01E263C89CE00BA3C25 /* ScheduleFormView.swift */,
 				0E78C3442612D2B2005E119E /* EventRowView.swift */,
-				0E9438E02623E6D100B1B462 /* NavbarView.swift */,
 				0E78C34F2612DFBD005E119E /* LogoutButtonView.swift */,
 			);
 			path = Views;
@@ -117,6 +119,15 @@
 				0EDA7CF626023AD700DBC842 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		0EEF44CD26361CF9005A0D62 /* Navbar */ = {
+			isa = PBXGroup;
+			children = (
+				0E9438E02623E6D100B1B462 /* NavbarView.swift */,
+				0EEF44CE26361D1E005A0D62 /* NavContentView.swift */,
+			);
+			path = Navbar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,17 +207,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EDA7CF226023AD300DBC842 /* ContentView.swift in Sources */,
-				0E8DAE7E260822DC00CAB8CA /* CalendarView.swift in Sources */,
-				0E8DAE7B2608227B00CAB8CA /* PracticeView.swift in Sources */,
+				0E96F019263C84DD00BA3C25 /* PracticeView.swift in Sources */,
+				0E96F01C263C892300BA3C25 /* CalendarView.swift in Sources */,
+				0E96F015263C80E000BA3C25 /* HomeScheduleView.swift in Sources */,
+				0EEF44CF26361D1E005A0D62 /* NavContentView.swift in Sources */,
 				0E9438E12623E6D100B1B462 /* NavbarView.swift in Sources */,
 				0E8DAE6D26081FE500CAB8CA /* SportSelectView.swift in Sources */,
-				0E8DAE712608208A00CAB8CA /* HomeScheduleView.swift in Sources */,
 				0E78C3452612D2B2005E119E /* EventRowView.swift in Sources */,
 				0E78C34B2612D435005E119E /* EnvironmentModel.swift in Sources */,
 				0E78C33826123FAE005E119E /* SyncContentView.swift in Sources */,
 				0E78C3502612DFBD005E119E /* LogoutButtonView.swift in Sources */,
-				0E8DAE822608231F00CAB8CA /* ScheduleFormView.swift in Sources */,
 				0EDA7CF026023AD300DBC842 /* AthletePortalApp.swift in Sources */,
+				0E96F01F263C89CE00BA3C25 /* ScheduleFormView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

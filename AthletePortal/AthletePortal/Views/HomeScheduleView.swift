@@ -2,7 +2,7 @@
 //  HomeScheduleView.swift
 //  AthletePortal
 //
-//  Created by Daniel Williams on 21/03/2021.
+//  Created by Daniel Williams on 30/04/2021.
 //
 
 import Foundation
@@ -19,38 +19,81 @@ struct HomeScheduleView: View {
     
     @Environment(\.realm) var realm
     
-    // Button to be displayed on the top left (should always be logout button)
-    var leadingBarButton: AnyView?
+    // For the navbar portion of the view
+    @State var showMenu = false
     
     var body: some View {
-        // Query to modify the db results to fit the "schedule view" format of being in timed order (frontend - please do not touch)
-        let schedule = events.sorted(byKeyPath: "startDateTime", ascending: true)
         
-        // This view specifically should organize the schedule displayed by a selected team, this selected team will be referenced in the Object Model, and chosen in the SportSelectView
-        // This view is also what appears when the "Dashboard" option is selected from the hamburger navbar
+        // Beginning of Navbar code
+        let drag = DragGesture()
+            .onEnded {
+                if $0.translation.width < -100 {
+                    withAnimation {
+                        self.showMenu = false
+                    }
+                }
+            }
         
-        VStack {
-            // Navbar gets added to the top of every view we use (because it is always present in the app, that is the purpose of a navbar)
-            NavbarView()
-                .environment(\.realmConfiguration,
-                             app.currentUser!.configuration(partitionValue: partitionValue))
-            
-            // Replace this with the actual UI code:
-            Text("Home Schedule View")
-            
-        }        
+        return NavigationView {
+            GeometryReader { geometry in
+                ZStack(alignment: .leading) {
+                    MainHomeNavView(showMenu: self.$showMenu)
+                        .frame(width: geometry.size.width, height: geometry.size.height)
+                        .offset(x: self.showMenu ? geometry.size.width/2 : 0)
+                        .disabled(self.showMenu ? true : false)
+                    
+                    // Specific UI view code here:
+                    
+                    // Query to modify the db results to fit the "schedule view" format of being in timed order (frontend - please do not touch)
+                    let schedule = events.sorted(byKeyPath: "startDateTime", ascending: true)
+                    
+                    // This view specifically should organize the schedule displayed by a selected team, this selected team will be referenced in the Object Model, and chosen in the SportSelectView
+                    // This view is also what appears when the "Dashboard" option is selected from the hamburger navbar
+                    
+                    Text("Home View")
+                    
+                    // UI code ends, rest of the code is now navbar related
+                    if self.showMenu {
+                        NavContentView()
+                            .frame(width: geometry.size.width/2)
+                            .transition(.move(edge: .leading))
+                    }
+                }
+                    .gesture(drag)
+            }
+                .navigationBarItems(leading: (
+                    Button(action: {
+                        withAnimation {
+                            self.showMenu.toggle()
+                        }
+                    }) {
+                        Image(systemName: "line.horizontal.3")
+                            .imageScale(.large)
+                    }
+                ))
+        }
     }
 }
 
-// I'm not quite sure how to make these MongoDB data models work in previews because of how they are passed down from view to view
-//      If you need to test or look at the view, either load it in the simulator, or comment out the @ObservedRealmObject above, update the
-//      dependencies in the code, and then use the preview code below. Let me know if you have questions or if that doesn't make sense
-
-struct SportSelectView_Previews: PreviewProvider {
+struct MainHomeNavView: View {
+    
+    @Binding var showMenu: Bool
+    
+    var body: some View {
+        
+        Button(action: {
+            withAnimation {
+               self.showMenu = true
+            }
+        }) {
+        }
+        
+    }
+        
+    }
+        
+struct HomeScheduleView_Previews: PreviewProvider {
     static var previews: some View {
         HomeScheduleView()
-            .preferredColorScheme(.dark)
-            .environment(\.realmConfiguration,
-                          app.currentUser!.configuration(partitionValue: "masterSchedule"))
     }
 }
