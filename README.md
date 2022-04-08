@@ -1,2 +1,5 @@
-#The IOS version of the Athlete Portal/Athletic Scheduling App
-I participated in the frontend development and design of this project. It is important to note that i primarily worked on the file 
+# The IOS version of the Athlete Portal/Athletic Scheduling App
+
+## NOTE: I primarily worked on the ScheduleFormView.swift and the SportSelectView.swift files
+
+I developed the Frontend views of this app, using SwiftUI and Xcode
